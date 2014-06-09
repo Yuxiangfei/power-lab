@@ -378,13 +378,13 @@ void TimerSys_init(void)
 	SysTick_Config(SystemCoreClock / 10000);
 }
 
-double phasor_sum_magnitude(double i1, double i2, double i_ph_1, double i_ph_2, double v_ph, double T)
+float phasor_sum_magnitude(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
 {
-	double i1h;
-	double i1v;
-	double i2h;
-	double i2v;
-	double I12;
+	float i1h;
+	float i1v;
+	float i2h;
+	float i2v;
+	float I12;
 
 	i1h = i1 * cos((i_ph_1) * 2 * PI / T);
 	i1v = i1 * sin((i_ph_1) * 2 * PI / T);
@@ -396,13 +396,13 @@ double phasor_sum_magnitude(double i1, double i2, double i_ph_1, double i_ph_2, 
 	return I12;
 }
 
-double phasor_sum_phase(double i1, double i2, double i_ph_1, double i_ph_2, double v_ph, double T)
+float phasor_sum_phase(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
 {
-	double i1h;
-	double i1v;
-	double i2h;
-	double i2v;
-	double I_ph_12;
+	float i1h;
+	float i1v;
+	float i2h;
+	float i2v;
+	float I_ph_12;
 
 	i1h = i1 * cos((i_ph_1) * 2 * PI / T);
 	i1v = i1 * sin((i_ph_1) * 2 * PI / T);
@@ -410,21 +410,13 @@ double phasor_sum_phase(double i1, double i2, double i_ph_1, double i_ph_2, doub
 	i2v = i2 * sin((i_ph_2 + v_ph) * 2 * PI / T);
 
 	if ((i1h + i2h) > 0 && (i1v + i2v) > 0)
-	{
 		I_ph_12 = (atan((i1v + i2v) / (i1h + i2h)) * T / (2 * PI));
-	}
 	else if ((i1h + i2h) < 0 && (i1v + i2v) > 0)
-	{
 		I_ph_12 = ((PI - atan((i1v + i2v) / (-i1h - i2h))) * T / (2 * PI));
-	}
 	else if ((i1h + i2h) < 0 && (i1v + i2v) < 0)
-	{
 		I_ph_12 = ((PI + atan((i1v + i2v) / (i1h + i2h))) * T / (2 * PI));
-	}
 	else
-	{
 		I_ph_12 = ((2 * PI - atan((-i1v - i2v) / (i1h + i2h))) * T / (2 * PI));
-	}
 
 	return I_ph_12;
 }
@@ -460,13 +452,13 @@ void SysTick_Handler(void)
 		cnt10 = 0;
 		TIM_Sys_Flags.Time10ms = 1;
 
-		I12_mag = phasor_sum_magnitude(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		I12_phase = phasor_sum_phase(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		I34_mag = phasor_sum_magnitude(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		I34_phase = phasor_sum_phase(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.I12_mag = phasor_sum_magnitude(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.I12_phase = phasor_sum_phase(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.I34_mag = phasor_sum_magnitude(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.I34_phase = phasor_sum_phase(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
 
-		Io_mag = phasor_sum_magnitude(I12_mag, I34_mag, I12_phase, I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		Io_phase = phasor_sum_phase(I12_mag, I34_mag, I12_phase, I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.Io_mag = phasor_sum_magnitude(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
+		logic_data.Io_phase = phasor_sum_phase(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
 	}
 
 	//executed every 100ms
@@ -484,18 +476,25 @@ void SysTick_Handler(void)
 
 		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
 
-			if (I12_phase > (90 * TIM_PWM_Data.period / 360))
+			if (logic_data.I12_phase > (90 * TIM_PWM_Data.period / 360))
 				timer_pwm_freq_dec(1);
-			else if (I12_phase < (90 * TIM_PWM_Data.period / 360))
+			else if (logic_data.I12_phase < (90 * TIM_PWM_Data.period / 360))
 				timer_pwm_freq_inc(1);
 		}
 
 		if (TIM_PWM_Data.state == TIMER_STATE_RUN4) {
 
-			if (Io_mag > 10*2500)
-				TIM_PWM_Data.phase += 1;
-			else if (Io_mag < 10*2500)
+			if (logic_data.Io_mag > 7*100) {
 				TIM_PWM_Data.phase -= 1;
+				if (TIM_PWM_Data.phase < 0) TIM_PWM_Data.phase = 100 * TIM_PWM_Data.period / 360;
+			}
+
+			else if (logic_data.Io_mag < 7*100) {
+				TIM_PWM_Data.phase += 1;
+				if (TIM_PWM_Data.phase > 50 * TIM_PWM_Data.period / 360) TIM_PWM_Data.phase = 0;
+			}
+
+
 		}
 	}
 

@@ -362,7 +362,7 @@ namespace WiPoInverter
             {
                 port.Write(obuf, 0, 1);
 
-                for (i = 0; i < 332; i++)
+                for (i = 0; i < 404; i++)
                     port.Read(ibuf, i, 1);
             }
             catch
@@ -373,7 +373,7 @@ namespace WiPoInverter
 
             crc = 0;
 
-            for (i = 0; i < 83; i++)
+            for (i = 0; i < 100; i++)
             {
                 tmp = 0;
 
@@ -392,7 +392,7 @@ namespace WiPoInverter
             for (j = 0; j < 4; j++)
             {
                 tmp *= 256;
-                tmp += ibuf[331 - j];
+                tmp += ibuf[403 - j];
             }
 
             if (crc != tmp)
@@ -605,6 +605,28 @@ namespace WiPoInverter
             State_s = (UInt32)buffer[80];
             CntVal_s = (UInt32)buffer[81];
 
+            Ph12_Is_max = buffer[82] / 100;
+            Ph34_Is_max = buffer[88] / 100;
+            IPhase12_max = buffer[85];
+            IPhase34_max = buffer[91];
+
+            Ph12_Is_mean = buffer[83] / 100;
+            Ph34_Is_mean = buffer[89] / 100;
+            IPhase12_mean = buffer[86];
+            IPhase34_mean = buffer[92];
+
+            Ph12_Is_min = buffer[84] / 100;
+            Ph34_Is_min = buffer[90] / 100;
+            IPhase12_min = buffer[87];
+            IPhase34_min = buffer[93];
+
+            Pho_Is_max = buffer[94] / 100;
+            IPhaseo_max = buffer[97];
+            Pho_Is_mean = buffer[95] / 100;
+            IPhaseo_mean = buffer[98];
+            Pho_Is_min = buffer[96] / 100;
+            IPhaseo_min = buffer[99];
+
             phasor_calculation();
         }
 
@@ -661,7 +683,7 @@ namespace WiPoInverter
 
         public void phasor_calculation()
         {
-            Ph34_Is_min = phasor_sum_module(Ph3_Is_min, Ph4_Is_min, IPhase3_min, IPhase4_min, VPhase_min, Period_mean);
+            /*Ph34_Is_min = phasor_sum_module(Ph3_Is_min, Ph4_Is_min, IPhase3_min, IPhase4_min, VPhase_min, Period_mean);
             IPhase12_min = phasor_sum_phase(Ph1_Is_min, Ph2_Is_min, IPhase1_min, IPhase2_min, VPhase_min, Period_mean);
             IPhase34_min = phasor_sum_phase(Ph3_Is_min, Ph4_Is_min, IPhase3_min, IPhase4_min, VPhase_min, Period_mean);
 
@@ -673,7 +695,7 @@ namespace WiPoInverter
             Ph12_Is_max = phasor_sum_module(Ph1_Is_max, Ph2_Is_max, IPhase1_max, IPhase2_max, VPhase_max, Period_mean);
             Ph34_Is_max = phasor_sum_module(Ph3_Is_max, Ph4_Is_max, IPhase3_max, IPhase4_max, VPhase_max, Period_mean);
             IPhase12_max = phasor_sum_phase(Ph1_Is_max, Ph2_Is_max, IPhase1_max, IPhase2_max, VPhase_max, Period_mean);
-            IPhase34_max = phasor_sum_phase(Ph3_Is_max, Ph4_Is_max, IPhase3_max, IPhase4_max, VPhase_max, Period_mean);
+            IPhase34_max = phasor_sum_phase(Ph3_Is_max, Ph4_Is_max, IPhase3_max, IPhase4_max, VPhase_max, Period_mean);*/
 
             Ph12_Is_min_s = phasor_sum_module(Ph1_Is_min_s, Ph2_Is_min_s, IPhase1_min_s, IPhase2_min_s, VPhase_min_s, Period_mean_s);
             Ph34_Is_min_s = phasor_sum_module(Ph3_Is_min_s, Ph4_Is_min_s, IPhase3_min_s, IPhase4_min_s, VPhase_min_s, Period_mean_s);
@@ -690,12 +712,12 @@ namespace WiPoInverter
             IPhase12_max_s = phasor_sum_phase(Ph1_Is_max_s, Ph2_Is_max_s, IPhase1_max_s, IPhase2_max_s, VPhase_max_s, Period_mean_s);
             IPhase34_max_s = phasor_sum_phase(Ph3_Is_max_s, Ph4_Is_max_s, IPhase3_max_s, IPhase4_max_s, VPhase_max_s, Period_mean_s);
 
-            Pho_Is_min = phasor_sum_module(Ph12_Is_min, Ph34_Is_min, IPhase12_min, IPhase34_min, VPhase_min, Period_mean);
+            /*Pho_Is_min = phasor_sum_module(Ph12_Is_min, Ph34_Is_min, IPhase12_min, IPhase34_min, VPhase_min, Period_mean);
             IPhaseo_min = phasor_sum_phase(Ph12_Is_min, Ph34_Is_min, IPhase12_min, IPhase34_min, VPhase_min, Period_mean);
             Pho_Is_mean = phasor_sum_module(Ph12_Is_mean, Ph34_Is_mean, IPhase12_mean, IPhase34_mean, VPhase_mean, Period_mean);
             IPhaseo_mean = phasor_sum_phase(Ph12_Is_mean, Ph34_Is_mean, IPhase12_mean, IPhase34_mean, VPhase_mean, Period_mean);
             Pho_Is_max = phasor_sum_module(Ph12_Is_max, Ph34_Is_max, IPhase12_max, IPhase34_max, VPhase_max, Period_mean);
-            IPhaseo_max = phasor_sum_phase(Ph12_Is_max, Ph34_Is_max, IPhase12_max, IPhase34_max, VPhase_max, Period_mean);
+            IPhaseo_max = phasor_sum_phase(Ph12_Is_max, Ph34_Is_max, IPhase12_max, IPhase34_max, VPhase_max, Period_mean);*/
 
             Pho_Is_min_s = phasor_sum_module(Ph12_Is_min_s, Ph34_Is_min_s, IPhase12_min_s, IPhase34_min_s, VPhase_min_s, Period_mean_s);
             IPhaseo_min_s = phasor_sum_phase(Ph12_Is_min_s, Ph34_Is_min_s, IPhase12_min_s, IPhase34_min_s, VPhase_min_s, Period_mean_s);

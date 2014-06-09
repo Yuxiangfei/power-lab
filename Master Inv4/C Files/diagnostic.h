@@ -60,6 +60,13 @@ typedef struct
 	u32	State_s;
 	u32	CntVal_s;
 //328
+	s32 I12_mag[3];
+	s32 I12_phase[3];
+	s32 I34_mag[3];
+	s32 I34_phase[3];
+	s32 Io_mag[3];
+	s32 Io_phase[3];
+//328+72
 	s32	buffer1[DIAG_BUF_SIZE];
 	s32	buffer2[DIAG_BUF_SIZE];
 	u32	bcnt;

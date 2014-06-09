@@ -143,7 +143,7 @@ void simple_comm_send_all(void)
 
 	ptr = (u8*)&Diagnostic_Data;
 
-	for(i = 0; i < 328; i++)
+	for(i = 0; i < 400; i++)
 	{
 		USART2_Datas.TX_Buf[USART2_Datas.TX_index_in] = *ptr;
 		crc += *ptr;

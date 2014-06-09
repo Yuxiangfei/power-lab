@@ -39,6 +39,12 @@ typedef struct
 	u16 ph1_off;
 	u16 ph2_off;
 	u8  out_enable;
+	float I12_mag;
+	float I12_phase;
+	float I34_mag;
+	float I34_phase;
+	float Io_mag;
+	float Io_phase;
 } logic_data_type;
 
 extern volatile logic_data_type logic_data;

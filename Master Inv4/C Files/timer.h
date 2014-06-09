@@ -10,7 +10,7 @@
 #define TIMER_PWM_PMAX			2275 // resonant frequency 1375
 #define TIMER_PWM_PMIN			800
 
-#define TIMER_PWM_INIT_FREQ		142908 //240000
+#define TIMER_PWM_INIT_FREQ		220000 //240000
 #define FPGA_CLOCK				199500000 //301000000
 //#define TIMER_PWM_INIT_PERIOD	((SystemCoreClock / TIMER_PWM_INIT_FREQ) - 1)
 #define TIMER_PWM_INIT_PERIOD	((FPGA_CLOCK / TIMER_PWM_INIT_FREQ) - 2)
@@ -58,16 +58,6 @@ typedef struct
 
 extern volatile	TIM_Sys_Flags_Type TIM_Sys_Flags;
 extern volatile TIM_PWM_Data_Type TIM_PWM_Data;
-
-double phasor_sum_module(double i1, double i2, double i_ph_1, double i_ph_2, double v_ph, double T);
-double phasor_sum_phase(double i1, double i2, double i_ph_1, double i_ph_2, double v_ph, double T);
-
-double I12_mag;
-double I12_phase;
-double I34_mag;
-double I34_phase;
-double Io_mag;
-double Io_phase;
 
 void timer_pwm_init(void);
 void timer_pwm_freq_inc(u16 value);

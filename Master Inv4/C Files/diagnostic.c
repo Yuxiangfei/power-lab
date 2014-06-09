@@ -21,6 +21,14 @@ void diag_store_data(void)
 		Diagnostic_Data.Temp1 += ADC_Measurements.Temp1;
 		Diagnostic_Data.Temp2 += ADC_Measurements.Temp2;
 
+		// I12, I34 and Io mean
+		Diagnostic_Data.I12_mag[DIAG_MEAN] += (s32)logic_data.I12_mag;
+		Diagnostic_Data.I34_mag[DIAG_MEAN] += (s32)logic_data.I34_mag;
+		Diagnostic_Data.Io_mag[DIAG_MEAN] += (s32)logic_data.Io_mag;
+		Diagnostic_Data.I12_phase[DIAG_MEAN] += (s32)logic_data.I12_phase;
+		Diagnostic_Data.I34_phase[DIAG_MEAN] += (s32)logic_data.I34_phase;
+		Diagnostic_Data.Io_phase[DIAG_MEAN] += (s32)logic_data.Io_phase;
+
 		if(ADC_Measurements.Ph1_Is > Diagnostic_Data.Ph1_Is[DIAG_MAX]) Diagnostic_Data.Ph1_Is[DIAG_MAX] = ADC_Measurements.Ph1_Is;
 		if(ADC_Measurements.Ph2_Is > Diagnostic_Data.Ph2_Is[DIAG_MAX]) Diagnostic_Data.Ph2_Is[DIAG_MAX] = ADC_Measurements.Ph2_Is;
 		if(ADC_Measurements.Ph3_Is > Diagnostic_Data.Ph3_Is[DIAG_MAX]) Diagnostic_Data.Ph3_Is[DIAG_MAX] = ADC_Measurements.Ph3_Is;
@@ -36,6 +44,14 @@ void diag_store_data(void)
 		if(TIM_PWM_Data.period > Diagnostic_Data.Period[DIAG_MAX]) Diagnostic_Data.Period[DIAG_MAX] = TIM_PWM_Data.period;
 		if(TIM_PWM_Data.phase > Diagnostic_Data.VPhase[DIAG_MAX]) Diagnostic_Data.VPhase[DIAG_MAX] = TIM_PWM_Data.phase;
 
+		// I12, I34 and Io max
+		if((s32)logic_data.I12_mag > Diagnostic_Data.I12_mag[DIAG_MAX]) Diagnostic_Data.I12_mag[DIAG_MAX] = (s32)logic_data.I12_mag;
+		if((s32)logic_data.I34_mag > Diagnostic_Data.I34_mag[DIAG_MAX]) Diagnostic_Data.I34_mag[DIAG_MAX] = (s32)logic_data.I34_mag;
+		if((s32)logic_data.Io_mag > Diagnostic_Data.Io_mag[DIAG_MAX]) Diagnostic_Data.Io_mag[DIAG_MAX] = (s32)logic_data.Io_mag;
+		if((s32)logic_data.I34_phase > Diagnostic_Data.I34_phase[DIAG_MAX]) Diagnostic_Data.I34_phase[DIAG_MAX] = (s32)logic_data.I34_phase;
+		if((s32)logic_data.I12_phase > Diagnostic_Data.I12_phase[DIAG_MAX]) Diagnostic_Data.I12_phase[DIAG_MAX] = (s32)logic_data.I12_phase;
+		if((s32)logic_data.Io_phase > Diagnostic_Data.Io_phase[DIAG_MAX]) Diagnostic_Data.Io_phase[DIAG_MAX] = (s32)logic_data.Io_phase;
+
 		if(ADC_Measurements.Ph1_Is < Diagnostic_Data.Ph1_Is[DIAG_MIN]) Diagnostic_Data.Ph1_Is[DIAG_MIN] = ADC_Measurements.Ph1_Is;
 		if(ADC_Measurements.Ph2_Is < Diagnostic_Data.Ph2_Is[DIAG_MIN]) Diagnostic_Data.Ph2_Is[DIAG_MIN] = ADC_Measurements.Ph2_Is;
 		if(ADC_Measurements.Ph3_Is < Diagnostic_Data.Ph3_Is[DIAG_MIN]) Diagnostic_Data.Ph3_Is[DIAG_MIN] = ADC_Measurements.Ph3_Is;
@@ -50,6 +66,14 @@ void diag_store_data(void)
 
 		if(TIM_PWM_Data.period < Diagnostic_Data.Period[DIAG_MIN]) Diagnostic_Data.Period[DIAG_MIN] = TIM_PWM_Data.period;
 		if(TIM_PWM_Data.phase < Diagnostic_Data.VPhase[DIAG_MIN]) Diagnostic_Data.VPhase[DIAG_MIN] = TIM_PWM_Data.phase;
+
+		// I12, I34 and Io min
+		if((s32)logic_data.I12_mag < Diagnostic_Data.I12_mag[DIAG_MIN]) Diagnostic_Data.I12_mag[DIAG_MIN] = (s32)logic_data.I12_mag;
+		if((s32)logic_data.I34_mag < Diagnostic_Data.I34_mag[DIAG_MIN]) Diagnostic_Data.I34_mag[DIAG_MIN] = (s32)logic_data.I34_mag;
+		if((s32)logic_data.Io_mag < Diagnostic_Data.Io_mag[DIAG_MIN]) Diagnostic_Data.Io_mag[DIAG_MIN] = (s32)logic_data.Io_mag;
+		if((s32)logic_data.I12_phase < Diagnostic_Data.I12_phase[DIAG_MIN]) Diagnostic_Data.I12_phase[DIAG_MIN] = (s32)logic_data.I12_phase;
+		if((s32)logic_data.I34_phase < Diagnostic_Data.I34_phase[DIAG_MIN]) Diagnostic_Data.I34_phase[DIAG_MIN] = (s32)logic_data.I34_phase;
+		if((s32)logic_data.Io_phase < Diagnostic_Data.Io_phase[DIAG_MIN]) Diagnostic_Data.Io_phase[DIAG_MIN] = (s32)logic_data.Io_phase;
 
 		Diagnostic_Data.cnt++;
 	}
@@ -75,6 +99,13 @@ void diag_reset_data(void)
 	Diagnostic_Data.Temp1 = 0;
 	Diagnostic_Data.Temp2 = 0;
 
+	Diagnostic_Data.I12_mag[DIAG_MEAN] = 0;
+	Diagnostic_Data.I34_mag[DIAG_MEAN] = 0;
+	Diagnostic_Data.Io_mag[DIAG_MEAN] = 0;
+	Diagnostic_Data.I12_phase[DIAG_MEAN] = 0;
+	Diagnostic_Data.I34_phase[DIAG_MEAN] = 0;
+	Diagnostic_Data.Io_phase[DIAG_MEAN] = 0;
+
 	Diagnostic_Data.Ph1_Is[DIAG_MAX] = 0;
 	Diagnostic_Data.Ph2_Is[DIAG_MAX] = 0;
 	Diagnostic_Data.Ph3_Is[DIAG_MAX] = 0;
@@ -90,6 +121,13 @@ void diag_reset_data(void)
 	Diagnostic_Data.Period[DIAG_MAX] = 0;
 	Diagnostic_Data.VPhase[DIAG_MAX] = 0;
 
+	Diagnostic_Data.I12_mag[DIAG_MAX] = 0;
+	Diagnostic_Data.I34_mag[DIAG_MAX] = 0;
+	Diagnostic_Data.Io_mag[DIAG_MAX] = 0;
+	Diagnostic_Data.I12_phase[DIAG_MAX] = 0;
+	Diagnostic_Data.I34_phase[DIAG_MAX] = 0;
+	Diagnostic_Data.Io_phase[DIAG_MAX] = 0;
+
 	Diagnostic_Data.Ph1_Is[DIAG_MIN] = 0x7FFFFFFF;
 	Diagnostic_Data.Ph2_Is[DIAG_MIN] = 0x7FFFFFFF;
 	Diagnostic_Data.Ph3_Is[DIAG_MIN] = 0x7FFFFFFF;
@@ -104,6 +142,13 @@ void diag_reset_data(void)
 
 	Diagnostic_Data.Period[DIAG_MIN] = 0x7FFFFFFF;
 	Diagnostic_Data.VPhase[DIAG_MIN] = 0x7FFFFFFF;
+
+	Diagnostic_Data.I12_mag[DIAG_MIN] = 0x7FFFFFFF;
+	Diagnostic_Data.I34_mag[DIAG_MIN] = 0x7FFFFFFF;
+	Diagnostic_Data.Io_mag[DIAG_MIN] = 0x7FFFFFFF;
+	Diagnostic_Data.I12_phase[DIAG_MIN] = 0x7FFFFFFF;
+	Diagnostic_Data.I34_phase[DIAG_MIN] = 0x7FFFFFFF;
+	Diagnostic_Data.Io_phase[DIAG_MIN] = 0x7FFFFFFF;
 
 	Diagnostic_Data.cnt = 0;
 
@@ -130,6 +175,13 @@ void diag_get_data(void)
 
 	Diagnostic_Data.Temp1 /= Diagnostic_Data.cnt;
 	Diagnostic_Data.Temp2 /= Diagnostic_Data.cnt;
+
+	Diagnostic_Data.I12_mag[DIAG_MEAN] /= Diagnostic_Data.cnt;
+	Diagnostic_Data.I34_mag[DIAG_MEAN] /= Diagnostic_Data.cnt;
+	Diagnostic_Data.Io_mag[DIAG_MEAN] /= Diagnostic_Data.cnt;
+	Diagnostic_Data.I12_phase[DIAG_MEAN] /= Diagnostic_Data.cnt;
+	Diagnostic_Data.I34_phase[DIAG_MEAN] /= Diagnostic_Data.cnt;
+	Diagnostic_Data.Io_phase[DIAG_MEAN] /= Diagnostic_Data.cnt;
 
 	Diagnostic_Data.Faults = logic_data.all_faults;
 	Diagnostic_Data.State = TIM_PWM_Data.state;

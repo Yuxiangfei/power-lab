@@ -19,7 +19,7 @@ namespace WiPoInverter
 
             Console.WriteLine("Bidirectional Wireless Charger UI rev1");
             
-            Unit1.Open("COM3");
+            Unit1.Open("COM4");
 
             if (Unit1.IsOpen)
             {
@@ -77,9 +77,9 @@ namespace WiPoInverter
                 Console.WriteLine("{0,10:0.000} A      |{1,10:0.000}         ||{2,10:0.000} A      |{3,10:0.000}         ", Unit1.Pho_Is_min, Unit1.IPhaseo_min / Unit1.Period_mean * 360, Unit1.Pho_Is_min_s, Unit1.IPhaseo_min_s / Unit1.Period_mean * 360);
 
                 Console.WriteLine("-----Vdc----------+----VPhase---------++-----Vdc----------+----VPhase---------");
-                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_max, Unit1.VPhase_max, Unit1.Vdc2_max_s, Unit1.VPhase_max_s);
-                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_mean, Unit1.VPhase_mean, Unit1.Vdc2_mean_s, Unit1.VPhase_mean_s);
-                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_min, Unit1.VPhase_min, Unit1.Vdc2_min_s, Unit1.VPhase_min_s);
+                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_max, Unit1.VPhase_max / Unit1.Period_mean * 360, Unit1.Vdc2_max_s, Unit1.VPhase_max_s / Unit1.Period_mean * 360);
+                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_mean, Unit1.VPhase_mean / Unit1.Period_mean * 360, Unit1.Vdc2_mean_s, Unit1.VPhase_mean_s / Unit1.Period_mean * 360);
+                Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_min, Unit1.VPhase_min / Unit1.Period_mean * 360, Unit1.Vdc2_min_s, Unit1.VPhase_min_s / Unit1.Period_mean * 360);
 
                 Console.WriteLine("-----Faults-------+----State----------++-----Faults-------+----State----------");
                 Console.WriteLine("{0,10:0}        |{1,10:0}         ||{2,10:0}        |{3,10:0}         ", Unit1.Faults, Unit1.State, Unit1.Faults_s, Unit1.State_s);

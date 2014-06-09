@@ -19,45 +19,70 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="logic.c" partName="logic.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.c" title="logic.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/logic.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="42" selectionOffset="3188" selectionTopPixel="2648"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4688" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="logic.h" partName="logic.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.h" title="logic.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.h" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="logic.h" partName="logic.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.h" title="logic.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/logic.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/logic.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="592" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="27" selectionOffset="623" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" partName="timer.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.c" title="timer.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" partName="timer.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.c" title="timer.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/timer.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12596" selectionTopPixel="7196"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12895" selectionTopPixel="7129"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer.h" partName="timer.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.h" title="timer.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/timer.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/timer.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="291" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="899" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="simple_comm.c" partName="simple_comm.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/simple_comm.c" title="simple_comm.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/simple_comm.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/simple_comm.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="17" selectionOffset="1252" selectionTopPixel="502"/>
+<editorState selectionHorizontalPixel="0" selectionLength="3" selectionOffset="3425" selectionTopPixel="1942"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="int_comm.c" partName="int_comm.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/int_comm.c" title="int_comm.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/int_comm.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/int_comm.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="diagnostic.c" partName="diagnostic.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/diagnostic.c" title="diagnostic.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/diagnostic.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/diagnostic.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10188" selectionTopPixel="2556"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" partName="adc.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/adc.c" title="adc.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/adc.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/adc.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="3624" selectionTopPixel="1470"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3524" selectionTopPixel="1335"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" partName="adc.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/adc.h" title="adc.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/adc.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/adc.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1173" selectionTopPixel="296"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="diagnostic.h" partName="diagnostic.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/diagnostic.h" title="diagnostic.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/diagnostic.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/diagnostic.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="914" selectionTopPixel="810"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="int_comm.c" partName="int_comm.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/int_comm.c" title="int_comm.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/int_comm.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/int_comm.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1441"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="simple_comm.h" partName="simple_comm.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/simple_comm.h" title="simple_comm.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/simple_comm.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/simple_comm.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="206"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" partName="usart.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/usart.c" title="usart.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/usart.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/usart.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2503"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" partName="usart.h" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/usart.h" title="usart.h" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/usart.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/usart.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="240"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="config.c" partName="config.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/config.c" title="config.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/C Files/config.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/C Files/config.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="531" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Public/Documents/Power Lab/Master Inv4/main.c" title="main.c" tooltip="C:/Users/Public/Documents/Power Lab/Master Inv4/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Wireless Charger Inverter/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="607" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -68,7 +93,7 @@
 <element path="/Wireless Charger Inverter/C Files"/>
 </expanded>
 <selection>
-<element path="/Wireless Charger Inverter/C Files/adc.h"/>
+<element path="/Wireless Charger Inverter/C Files/simple_comm.c"/>
 </selection>
 </viewState>
 </view>
@@ -215,8 +240,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.coocox.codebugger.trace.ui.traceview"/>
@@ -224,41 +249,56 @@
 <view id="org.coocox.builder.ui.views.ProjectView"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.ui.internal.ViewStack@188f41d">&#x0A;<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">&#x0A;<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@188f41d">
+<folder activePageID="org.coocox.builder.ui.views.ProjectView" appearance="2" expanded="2">
+<page content="org.coocox.builder.ui.views.ProjectView" label="Project"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1b039b3" ratio="0.69957536" ratioLeft="659" ratioRight="283" relationship="4" relative="org.eclipse.ui.internal.ViewStack@188f41d">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1b039b3" ratio="0.79210925" ratioLeft="522" ratioRight="137" relationship="4" relative="org.eclipse.ui.internal.ViewStack@188f41d">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@676927" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1b039b3">&#x0A;<folder activePageID="org.coocox.codebugger.trace.ui.traceview" appearance="2" expanded="2">&#x0A;<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@676927" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1b039b3">
+<folder activePageID="org.coocox.codebugger.trace.ui.traceview" appearance="2" expanded="2">
+<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e1d19e" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e1d19e" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.29986054" ratioLeft="430" ratioRight="1004" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d"/>
+<info part="org.eclipse.ui.editorss" ratio="0.13317573" ratioLeft="169" ratioRight="1100" relationship="2" relative="org.eclipse.ui.internal.ViewStack@188f41d"/>
 </mainWindow>
 </layout>
 </perspective>
@@ -268,162 +308,164 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/timer.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/logic.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/timer.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/adc.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/logic.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/diagnostic.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/diagnostic.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/simple_comm.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/simple_comm.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/adc.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/timer.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/C Files/logic.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Wireless Charger Inverter/main.c"/>
 </editors>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="10355" y="23"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3756" y="23"/>
-</item>
-<item historyLabel="logic.h" index="4">
-<position info="not_deleted" x="1315" y="0"/>
-</item>
-<item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="3184" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="10443" y="0"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3756" y="23"/>
-</item>
-<item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="3184" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="10936" y="0"/>
-</item>
-<item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="5098" y="0"/>
-</item>
-<item historyLabel="logic.h" index="4">
-<position info="not_deleted" x="604" y="17"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="10409" y="0"/>
-</item>
-<item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="5098" y="0"/>
-</item>
-<item historyLabel="simple_comm.c" index="5">
+<item historyLabel="simple_comm.h" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="simple_comm.h" index="6">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="1256" y="0"/>
 </item>
-<item historyLabel="simple_comm.c" index="5">
-<position info="not_deleted" x="1252" y="17"/>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10418" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="921" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10418" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="1111" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10418" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="1111" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10450" y="0"/>
 </item>
 <item historyLabel="timer.c" index="0">
-<position/>
+<position info="not_deleted" x="10066" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="706" y="9"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="131" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="941" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="941" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="10066" y="0"/>
 </item>
 <item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="3188" y="42"/>
+<position info="not_deleted" x="4688" y="0"/>
 </item>
 <item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="10439" y="0"/>
+<position info="not_deleted" x="10066" y="0"/>
 </item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="1643" y="0"/>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
 </item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12626" y="0"/>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="1025" y="0"/>
 </item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3756" y="23"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="11142" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="1643" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12261" y="16"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="652" y="16"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="11177" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="1673" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="11474" y="0"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3756" y="23"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12564" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="1673" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12509" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="644" y="27"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12509" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="671" y="0"/>
-</item>
-<item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="6512" y="0"/>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="3929" y="0"/>
 </item>
 <item historyLabel="logic.c" index="1">
-<position info="not_deleted" x="3188" y="42"/>
-</item>
-<item historyLabel="logic.h" index="4">
-<position info="not_deleted" x="592" y="0"/>
-</item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="671" y="0"/>
-</item>
-<item historyLabel="simple_comm.c" index="5">
-<position info="not_deleted" x="1252" y="17"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3624" y="4"/>
-</item>
-<item historyLabel="adc.h" index="7">
-<position info="not_deleted" x="1173" y="0"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3624" y="4"/>
-</item>
-<item historyLabel="adc.h" index="7">
-<position info="not_deleted" x="1173" y="0"/>
-</item>
-<item historyLabel="adc.c" index="3">
-<position info="not_deleted" x="3624" y="4"/>
+<position info="not_deleted" x="4688" y="0"/>
 </item>
 <item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="10066" y="0"/>
+</item>
+<item historyLabel="timer.h" index="6">
+<position info="not_deleted" x="1383" y="0"/>
+</item>
+<item historyLabel="logic.h" index="7">
+<position info="not_deleted" x="863" y="0"/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="10538" y="0"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10188" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="910" y="0"/>
+</item>
+<item historyLabel="simple_comm.c" index="4">
+<position info="not_deleted" x="3425" y="3"/>
+</item>
+<item historyLabel="diagnostic.c" index="2">
+<position info="not_deleted" x="10188" y="0"/>
+</item>
+<item historyLabel="diagnostic.h" index="3">
+<position info="not_deleted" x="914" y="0"/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="5884" y="38"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="8">
 <position/>
 </item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="671" y="0"/>
+<item historyLabel="main.c" index="9">
+<position/>
 </item>
 <item historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12451" y="0"/>
+<position info="not_deleted" x="12692" y="0"/>
 </item>
-<item historyLabel="timer.h" index="2">
-<position info="not_deleted" x="291" y="0"/>
+<item historyLabel="startup_stm32f4xx.c" index="8">
+<position/>
 </item>
-<item active="true" historyLabel="timer.c" index="0">
-<position info="not_deleted" x="12451" y="0"/>
+<item historyLabel="main.c" index="9">
+<position/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="12692" y="0"/>
+</item>
+<item historyLabel="timer.h" index="6">
+<position info="not_deleted" x="899" y="0"/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="12859" y="0"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="8">
+<position info="not_deleted" x="14754" y="0"/>
+</item>
+<item historyLabel="main.c" index="9">
+<position info="not_deleted" x="234" y="0"/>
+</item>
+<item historyLabel="logic.c" index="1">
+<position info="not_deleted" x="4688" y="0"/>
+</item>
+<item historyLabel="timer.c" index="0">
+<position info="not_deleted" x="12895" y="0"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="8">
+<position info="not_deleted" x="14754" y="0"/>
+</item>
+<item historyLabel="main.c" index="9">
+<position info="not_deleted" x="607" y="0"/>
+</item>
+<item active="true" historyLabel="logic.h" index="7">
+<position info="not_deleted" x="863" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -432,33 +474,41 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="Wireless Charger Inverter/cmsis_boot/startup/startup_stm32f4xx.c">
+<persistable path="/Wireless Charger Inverter/cmsis_boot/startup/startup_stm32f4xx.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="config.c" tooltip="Wireless Charger Inverter/C Files/config.c">
+<persistable path="/Wireless Charger Inverter/C Files/config.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.h" tooltip="Wireless Charger Inverter/C Files/usart.h">
+<persistable path="/Wireless Charger Inverter/C Files/usart.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="Wireless Charger Inverter/C Files/usart.c">
+<persistable path="/Wireless Charger Inverter/C Files/usart.c"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="simple_comm.h" tooltip="Wireless Charger Inverter/C Files/simple_comm.h">
 <persistable path="/Wireless Charger Inverter/C Files/simple_comm.h"/>
-</file>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
-<file factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory" id="org.coocox.builder.ui.editors.repository.RepositoryBrowser" name="Repository" tooltip="Repository">
-<persistable>
-<subPage/>
-</persistable>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" tooltip="Wireless Charger Inverter/C Files/adc.h">
-<persistable path="/Wireless Charger Inverter/C Files/adc.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" tooltip="Wireless Charger Inverter/C Files/adc.c">
-<persistable path="/Wireless Charger Inverter/C Files/adc.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="int_comm.c" tooltip="Wireless Charger Inverter/C Files/int_comm.c">
 <persistable path="/Wireless Charger Inverter/C Files/int_comm.c"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="diagnostic.h" tooltip="Wireless Charger Inverter/C Files/diagnostic.h">
+<persistable path="/Wireless Charger Inverter/C Files/diagnostic.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.c" tooltip="Wireless Charger Inverter/C Files/adc.c">
+<persistable path="/Wireless Charger Inverter/C Files/adc.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="diagnostic.c" tooltip="Wireless Charger Inverter/C Files/diagnostic.c">
+<persistable path="/Wireless Charger Inverter/C Files/diagnostic.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gpio.c" tooltip="Wireless Charger Inverter/C Files/gpio.c">
+<persistable path="/Wireless Charger Inverter/C Files/gpio.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="adc.h" tooltip="Wireless Charger Inverter/C Files/adc.h">
+<persistable path="/Wireless Charger Inverter/C Files/adc.h"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="simple_comm.c" tooltip="Wireless Charger Inverter/C Files/simple_comm.c">
 <persistable path="/Wireless Charger Inverter/C Files/simple_comm.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="Wireless Charger Inverter/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/Wireless Charger Inverter/cmsis_boot/startup/startup_stm32f4xx.c"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.h" tooltip="Wireless Charger Inverter/C Files/timer.h">
 <persistable path="/Wireless Charger Inverter/C Files/timer.h"/>
@@ -468,18 +518,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="logic.h" tooltip="Wireless Charger Inverter/C Files/logic.h">
 <persistable path="/Wireless Charger Inverter/C Files/logic.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="logic.c" tooltip="Wireless Charger Inverter/C Files/logic.c">
-<persistable path="/Wireless Charger Inverter/C Files/logic.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.h" tooltip="Wireless Charger Inverter/timer.h">
-<persistable path="/Wireless Charger Inverter/timer.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" tooltip="Wireless Charger Inverter/timer.c">
-<persistable path="/Wireless Charger Inverter/timer.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="usart.c" tooltip="Wireless Charger Inverter/C Files/usart.c">
-<persistable path="/Wireless Charger Inverter/C Files/usart.c"/>
 </file>
 </mruList>
 </workbench>
