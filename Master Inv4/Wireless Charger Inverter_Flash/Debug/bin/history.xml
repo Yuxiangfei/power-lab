@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Wireless Charger Inverter.map -O0 --gc-sections -lm -lgcc -lc -LC:\CooCox\CoIDE\configuration\ProgramData\Wireless Charger Inverter -TC:\CooCox\CoIDE\configuration\ProgramData\Wireless Charger Inverter/arm-gcc-link.ld -g -L..\..\.. -lm">
+      <target file="Wireless Charger Inverter.elf" lastModified="14673500634">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="1467329f011"/>
+         <source file="..\obj\logic.o" lastModified="1467329f0d4"/>
+         <source file="..\obj\timer.o" lastModified="14673500364"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="1467329f2a3"/>
+         <source file="..\obj\config.o" lastModified="1467329f31f"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="1467329f370"/>
+         <source file="..\obj\stm32f4xx_iwdg.o" lastModified="1467329f3d3"/>
+         <source file="..\obj\main.o" lastModified="146734e77a0"/>
+         <source file="..\obj\simple_comm.o" lastModified="146734e78b1"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="1467329f656"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="1467329f741"/>
+         <source file="..\obj\gpio.o" lastModified="1467329f7ed"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="1467329f871"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="1467329f98c"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="1467329f9ff"/>
+         <source file="..\obj\syscalls.o" lastModified="1467329fa96"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="1467329fb16"/>
+         <source file="..\obj\adc.o" lastModified="1467329fb84"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="1467329fc07"/>
+         <source file="..\obj\misc.o" lastModified="1467329fc76"/>
+         <source file="..\obj\int_comm.o" lastModified="146734e79e5"/>
+         <source file="..\obj\diagnostic.o" lastModified="146734e7adc"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="1467329fec8"/>
+         <source file="..\obj\usart.o" lastModified="1467329ff5b"/>
+      </target>
+   </processor>
+</history>

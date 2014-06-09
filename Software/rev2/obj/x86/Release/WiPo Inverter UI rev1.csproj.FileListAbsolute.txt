@@ -1,0 +1,5 @@
+\\psf\Home\Desktop\Power Lab\Software\rev2\bin\Release\WiPo Inverter rev1.exe
+\\psf\Home\Desktop\Power Lab\Software\rev2\bin\Release\WiPo Inverter rev1.pdb
+\\psf\Home\Desktop\Power Lab\Software\rev2\obj\x86\Release\ResolveAssemblyReference.cache
+\\psf\Home\Desktop\Power Lab\Software\rev2\obj\x86\Release\WiPo Inverter rev1.exe
+\\psf\Home\Desktop\Power Lab\Software\rev2\obj\x86\Release\WiPo Inverter rev1.pdb
