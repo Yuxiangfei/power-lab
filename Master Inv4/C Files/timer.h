@@ -20,7 +20,6 @@
 #define TIMER_STATE_RUN1		2
 #define TIMER_STATE_RUN2		3
 #define TIMER_STATE_RUN3		4
-#define TIMER_STATE_RUN4		5
 
 #define TIMER_STATE_EXT_FLT		10
 #define TIMER_STATE_IPH1_FLT	11
@@ -43,6 +42,7 @@ typedef struct
 	u8 Time100ms;
 	u8 TimeDisp200ms;
 	u8 Time1000ms;
+	u8 Time10000ms;
 } TIM_Sys_Flags_Type;
 
 typedef struct

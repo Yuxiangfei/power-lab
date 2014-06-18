@@ -19,7 +19,7 @@ namespace WiPoInverter
 
             Console.WriteLine("Bidirectional Wireless Charger UI rev1");
             
-            Unit1.Open("COM4");
+            Unit1.Open("COM3");
 
             if (Unit1.IsOpen)
             {

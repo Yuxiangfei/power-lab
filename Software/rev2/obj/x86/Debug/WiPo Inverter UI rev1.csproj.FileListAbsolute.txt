@@ -34,4 +34,4 @@ C:\Users\Public\Documents\Power Lab\Software\rev2\obj\x86\Debug\WiPo Inverter re
 C:\Users\Public\Documents\Power Lab\Software\rev2\obj\x86\Debug\WiPo Inverter rev1.pdb
 C:\Users\Public\Documents\Power Lab\Software\rev2\bin\Debug\WiPo Inverter rev1.exe
 C:\Users\Public\Documents\Power Lab\Software\rev2\bin\Debug\WiPo Inverter rev1.pdb
-C:\Users\Public\Documents\Power Lab\Software\rev2\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Public\Documents\Power Lab\Software\rev2\obj\x86\Debug\WiPo Inverter UI rev1.csprojResolveAssemblyReference.cache

@@ -251,19 +251,6 @@ void timer_routine(void)
 				}
 				else if(TIM_PWM_Data.cmd == TIMER_CMD_RUN)
 				{
-					TIM_PWM_Data.state = TIMER_STATE_RUN4;
-				}
-			}
-			break;
-		case TIMER_STATE_RUN4:
-			if(timer_check_faults() == 0)
-			{
-				if(TIM_PWM_Data.cmd == TIMER_CMD_DISABLE)
-				{
-					TIM_PWM_Data.state = TIMER_STATE_OFF;
-				}
-				else if(TIM_PWM_Data.cmd == TIMER_CMD_RUN)
-				{
 					TIM_PWM_Data.state = TIMER_STATE_RUN2;
 				}
 			}
@@ -378,7 +365,7 @@ void TimerSys_init(void)
 	SysTick_Config(SystemCoreClock / 10000);
 }
 
-float phasor_sum_magnitude(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
+float phasor_sum_magnitude_control(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
 {
 	float i1h;
 	float i1v;
@@ -396,7 +383,7 @@ float phasor_sum_magnitude(float i1, float i2, float i_ph_1, float i_ph_2, float
 	return I12;
 }
 
-float phasor_sum_phase(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
+float phasor_sum_phase_control(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
 {
 	float i1h;
 	float i1v;
@@ -421,6 +408,51 @@ float phasor_sum_phase(float i1, float i2, float i_ph_1, float i_ph_2, float v_p
 	return I_ph_12;
 }
 
+float phasor_sum_magnitude(float i1, float i2, float i_ph_1, float i_ph_2, float T)
+{
+	float i1h;
+	float i1v;
+	float i2h;
+	float i2v;
+	float I12;
+
+	i1h = i1 * cos(i_ph_1 * 2 * PI / T);
+	i1v = i1 * sin(i_ph_1 * 2 * PI / T);
+	i2h = i2 * cos(i_ph_2 * 2 * PI / T);
+	i2v = i2 * sin(i_ph_2 * 2 * PI / T);
+
+	I12 = sqrt((i1h + i2h) * (i1h + i2h) + (i1v + i2v) * (i1v + i2v));
+
+	return I12;
+}
+
+float phasor_sum_phase(float i1, float i2, float i_ph_1, float i_ph_2, float T)
+{
+	float i1h;
+	float i1v;
+	float i2h;
+	float i2v;
+	float I_ph_12;
+
+	i1h = i1 * cos(i_ph_1 * 2 * PI / T);
+	i1v = i1 * sin(i_ph_1 * 2 * PI / T);
+	i2h = i2 * cos(i_ph_2 * 2 * PI / T);
+	i2v = i2 * sin(i_ph_2 * 2 * PI / T);
+
+	if ((i1h + i2h) > 0 && (i1v + i2v) > 0)
+		I_ph_12 = (atan((i1v + i2v) / (i1h + i2h)) * T / (2 * PI));
+	else if ((i1h + i2h) < 0 && (i1v + i2v) > 0)
+		I_ph_12 = ((PI - atan((i1v + i2v) / (-i1h - i2h))) * T / (2 * PI));
+	else if ((i1h + i2h) < 0 && (i1v + i2v) < 0)
+		I_ph_12 = ((PI + atan((i1v + i2v) / (i1h + i2h))) * T / (2 * PI));
+	else
+		I_ph_12 = ((2 * PI - atan((-i1v - i2v) / (i1h + i2h))) * T / (2 * PI));
+
+	return I_ph_12;
+}
+
+float f_sw_1 = TIMER_PWM_INIT_FREQ;
+float error_freq_1 = 0;
 
 void SysTick_Handler(void)
 {
@@ -429,13 +461,21 @@ void SysTick_Handler(void)
 	static u8 cnt100 = 5;
 	static u8 cnt200 = 50;
 	static u16 cnt1000 = 500;
+	static u16 cnt10000 = 0;
 
-  	TIM_Sys_Flags.Time1ms = 1;
+	float Kp_f;
+	float Ki_f;
+//	float Kp_ph;
+	float Io_ph_ref; // Degrees
+//	float Io_mag_ref; // A
+	float error_freq_0;
+//	float error_Io_phase;
+	float f_sw_0;
+//	float v_ph;
+//	static u16 bcnt10 = 0;
+//	static u16 bcnt100 = 0;
+
   	cnt1++;
-	cnt10++;
-	cnt100++;
-	cnt200++;
-	cnt1000++;
 
 	diag_store_data();
 	logic_routine();
@@ -444,74 +484,105 @@ void SysTick_Handler(void)
 	if(cnt1 >= 10)
 	{
 		cnt1 = 0;
-	}
-
-	//executed every 10ms
-	if(cnt10 >= 10)
-	{
-		cnt10 = 0;
-		TIM_Sys_Flags.Time10ms = 1;
-
-		logic_data.I12_mag = phasor_sum_magnitude(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		logic_data.I12_phase = phasor_sum_phase(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		logic_data.I34_mag = phasor_sum_magnitude(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		logic_data.I34_phase = phasor_sum_phase(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
-
-		logic_data.Io_mag = phasor_sum_magnitude(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
-		logic_data.Io_phase = phasor_sum_phase(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.phase, TIM_PWM_Data.period);
-	}
-
-	//executed every 100ms
-	if(cnt100 >= 100)
-	{
-		cnt100 = 0;
-		TIM_Sys_Flags.Time100ms = 1;
-
-//		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
-//			if (logic_data.measurement[LOGIC_PH1_MEAS] > (90 * TIM_PWM_Data.period / 360) && logic_data.measurement[LOGIC_PH2_MEAS] > (90 * TIM_PWM_Data.period / 360) && logic_data.measurement[LOGIC_PH3_MEAS] > (90 * TIM_PWM_Data.period / 360) && logic_data.measurement[LOGIC_PH4_MEAS] > (90 * TIM_PWM_Data.period / 360))
-//				timer_pwm_freq_dec(1);
-//			else if (logic_data.measurement[LOGIC_PH1_MEAS] < (90 * TIM_PWM_Data.period / 360) || logic_data.measurement[LOGIC_PH2_MEAS] < (90 * TIM_PWM_Data.period / 360) || logic_data.measurement[LOGIC_PH3_MEAS] < (90 * TIM_PWM_Data.period / 360) || logic_data.measurement[LOGIC_PH4_MEAS] < (90 * TIM_PWM_Data.period / 360))
-//				timer_pwm_freq_inc(1);
-//		}
+		TIM_Sys_Flags.Time1ms = 1;
+		cnt10++;
+		cnt100++;
+		cnt200++;
+		cnt1000++;
+		cnt10000++;
 
 		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
 
-			if (logic_data.I12_phase > (90 * TIM_PWM_Data.period / 360))
-				timer_pwm_freq_dec(1);
-			else if (logic_data.I12_phase < (90 * TIM_PWM_Data.period / 360))
-				timer_pwm_freq_inc(1);
+			Kp_f = 1/10;
+//			Ki_f = 1; // PI
+			Io_ph_ref = 120 * ((float)TIM_PWM_Data.period / 360); // Degrees
+
+			error_freq_0 = Io_ph_ref - logic_data.Io_phase;
+			f_sw_0 = Kp_f * error_freq_0;
+//			f_sw_0 += Ki_f * (error_freq_0 - error_freq_1); // PI
+			f_sw_0 += f_sw_1;
+
+			logic_data.period = FPGA_CLOCK / f_sw_0 - 2;
+
+			f_sw_1 = f_sw_0;
+			error_freq_1 = error_freq_0;
+
+//			bcnt10++;
+
+//			Kp_ph = 1;
+//			Io_mag_ref = 7 * (100); // Amperes
+
+//			error_Io_phase = Io_mag_ref - logic_data.Io_mag;
+//			v_ph = (Kp_ph * error_Io_phase);
+
+//			bcnt100++;
+
+			//executed every 10ms
+//			if (bcnt10 >= 10) {
+//				bcnt10 = 0;
+//				if (logic_data.Io_mag > Io_mag_ref) {
+//					timer_pwm_phase_dec(1);
+//				}
+//				else if (logic_data.Io_mag < Io_mag_ref) {
+//					timer_pwm_phase_inc(1);
+//				}
+//			}
+			//executed every 100ms
+//			if (bcnt100 >= 100) {
+//				bcnt100 = 0;
+//				if (logic_data.Io_phase > Io_ph_ref) {
+//					timer_pwm_freq_dec(1);
+//				}
+//				else if (logic_data.Io_phase < Io_ph_ref) {
+//					timer_pwm_freq_inc(1);
+//				}
+//			}
 		}
 
-		if (TIM_PWM_Data.state == TIMER_STATE_RUN4) {
+		//executed every 10ms
+		if(cnt10 >= 10)
+		{
+			cnt10 = 0;
+			TIM_Sys_Flags.Time10ms = 1;
 
-			if (logic_data.Io_mag > 7*100) {
-				TIM_PWM_Data.phase -= 1;
-				if (TIM_PWM_Data.phase < 0) TIM_PWM_Data.phase = 100 * TIM_PWM_Data.period / 360;
-			}
+			logic_data.I12_mag = phasor_sum_magnitude_control(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+			logic_data.I12_phase = phasor_sum_phase_control(ADC_Measurements.Ph1_Is, ADC_Measurements.Ph2_Is, logic_data.measurement[LOGIC_PH1_MEAS], logic_data.measurement[LOGIC_PH2_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+			logic_data.I34_mag = phasor_sum_magnitude_control(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
+			logic_data.I34_phase = phasor_sum_phase_control(ADC_Measurements.Ph3_Is, ADC_Measurements.Ph4_Is, logic_data.measurement[LOGIC_PH3_MEAS], logic_data.measurement[LOGIC_PH4_MEAS], TIM_PWM_Data.phase, TIM_PWM_Data.period);
 
-			else if (logic_data.Io_mag < 7*100) {
-				TIM_PWM_Data.phase += 1;
-				if (TIM_PWM_Data.phase > 50 * TIM_PWM_Data.period / 360) TIM_PWM_Data.phase = 0;
-			}
-
-
+			logic_data.Io_mag = phasor_sum_magnitude(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.period);
+			logic_data.Io_phase = phasor_sum_phase(logic_data.I12_mag, logic_data.I34_mag, logic_data.I12_phase, logic_data.I34_phase, TIM_PWM_Data.period);
 		}
-	}
 
-	//executed every 100ms
-	if(cnt200 >= 200)
-	{
-		cnt200 = 0;
-		TIM_Sys_Flags.TimeDisp200ms = 1;
-	}
+		//executed every 100ms
+		if(cnt100 >= 100)
+		{
+			cnt100 = 0;
+			TIM_Sys_Flags.Time100ms = 1;
+		}
 
-	//executed every 1000ms
-	if(cnt1000 >= 1000)
-	{
-		Diagnostic_Data.CntVal = Diagnostic_Data.cnt_check;
-		Diagnostic_Data.cnt_check = 0;
+		//executed every 200ms
+		if(cnt200 >= 200)
+		{
+			cnt200 = 0;
+			TIM_Sys_Flags.TimeDisp200ms = 1;
+		}
 
-		cnt1000 = 0;
-		TIM_Sys_Flags.Time1000ms = 1;
+		//executed every 1000ms
+		if(cnt1000 >= 1000)
+		{
+			Diagnostic_Data.CntVal = Diagnostic_Data.cnt_check;
+			Diagnostic_Data.cnt_check = 0;
+
+			cnt1000 = 0;
+			TIM_Sys_Flags.Time1000ms = 1;
+		}
+
+		//executed every 10000ms
+		if(cnt10000 >= 10000)
+		{
+			cnt10000 = 0;
+			TIM_Sys_Flags.Time10000ms = 1;
+		}
 	}
 }
