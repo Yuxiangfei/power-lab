@@ -15,7 +15,7 @@ namespace WiPoInverter
             int line_num;
             WiPoInverter Unit1 = new WiPoInverter();
 
-            line_num = 46;
+            line_num = 52;
 
             Console.WriteLine("Bidirectional Wireless Charger UI rev1");
             
@@ -81,10 +81,18 @@ namespace WiPoInverter
                 Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_mean, Unit1.VPhase_mean / Unit1.Period_mean * 360, Unit1.Vdc2_mean_s, Unit1.VPhase_mean_s / Unit1.Period_mean * 360);
                 Console.WriteLine("{0,10:0.0} V      |{1,10:0.000}         ||{2,10:0.0} V      |{3,10:0.000}         ", Unit1.Vdc1_min, Unit1.VPhase_min / Unit1.Period_mean * 360, Unit1.Vdc2_min_s, Unit1.VPhase_min_s / Unit1.Period_mean * 360);
 
+                Console.WriteLine("--------------Precision---------------++--------------Precision---------------");
+                Console.WriteLine("            {0,10:0.0000}                ||                  0               ", Unit1.Controller_precision);
+
+                Console.WriteLine("-------Kp_f-------+-------Ki_f--------++-------Kp_f-------+-------Ki_f--------");
+                Console.WriteLine("  {0,10:0.0000}      |  {1,10:0.0000}       ||         0        |         0        ", Unit1.Kp_f, Unit1.Ki_f);
+
+                Console.WriteLine("-------Kp_ph------+-------Ki_ph-------++-------Kp_ph------+-------Ki_ph-------");
+                Console.WriteLine("  {0,10:0.0000}      |  {1,10:0.0000}       ||         0        |         0        ", Unit1.Kp_ph, Unit1.Ki_ph);
+
                 Console.WriteLine("-----Faults-------+----State----------++-----Faults-------+----State----------");
                 Console.WriteLine("{0,10:0}        |{1,10:0}         ||{2,10:0}        |{3,10:0}         ", Unit1.Faults, Unit1.State, Unit1.Faults_s, Unit1.State_s);
-                                        
-               
+
                 Console.WriteLine("------------------------------------------------------------------------------");
 
                 Console.SetCursorPosition(0, line_num);
@@ -94,7 +102,7 @@ namespace WiPoInverter
                 {
                     cki = Console.ReadKey();
 
-                    if (cki.KeyChar == 'b')
+                    /*if (cki.KeyChar == 'b')
                     {
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");
@@ -113,13 +121,13 @@ namespace WiPoInverter
                         file_buffers.Close();
                     }
                     else
-                    {
+                    {*/
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");
                         Console.WriteLine("                               ");
                         Unit1.SendCmd((byte)cki.KeyChar);
-                    }
-                    /*else if (cki.KeyChar == 'r')
+                    /*}
+                    else if (cki.KeyChar == 'r')
                     {
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");

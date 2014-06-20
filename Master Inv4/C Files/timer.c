@@ -197,6 +197,11 @@ void timer_routine(void)
 			logic_data.out_enable = 0;
 			TIM_PWM_Data.period = TIMER_PWM_INIT_PERIOD;
 			TIM_PWM_Data.phase = 0;
+			TIM_Control_Var.precision = TIMER_PWM_INIT_PREC; // Precision of controller constants
+			TIM_Control_Var.kp_f = 300;
+			TIM_Control_Var.ki_f = 30;
+			TIM_Control_Var.kp_ph = 0.02;
+			TIM_Control_Var.ki_ph = 0.002;
 			logic_calc_out(TIM_PWM_Data.period, TIM_PWM_Data.phase);
 			logic_set_out();
 
@@ -359,10 +364,130 @@ void DMA2_Stream0_IRQHandler(void)
 	Diagnostic_Data.cnt_check++;
 }
 
-//initiate system timer	for 1ms
-void TimerSys_init(void)
+// Controller code starts here...
+
+void timer_pwm_freq_control(float new_value)
 {
-	SysTick_Config(SystemCoreClock / 10000);
+	static u16 new_value_t;
+
+	new_value_t = FPGA_CLOCK / new_value - 2; // Convert input into period
+
+	if(TIM_PWM_Data.state != TIMER_STATE_RUN3)
+	{
+		return;
+	}
+
+	if(TIMER_PWM_PMIN < new_value_t && new_value_t < TIMER_PWM_PMAX)
+	{
+		TIM_PWM_Data.period = new_value_t;
+	}
+	else if(new_value_t <= TIMER_PWM_PMIN)
+	{
+		TIM_PWM_Data.period = TIMER_PWM_PMIN;
+	}
+	else if(new_value_t >= TIMER_PWM_PMAX)
+	{
+		TIM_PWM_Data.period = TIMER_PWM_PMAX;
+	}
+
+	logic_calc_out(TIM_PWM_Data.period, TIM_PWM_Data.phase);
+	logic_set_out();
+}
+
+void timer_pwm_phase_control(u16 new_value)
+{
+	if(TIM_PWM_Data.state != TIMER_STATE_RUN3)
+	{
+		return;
+	}
+
+	if(0 < new_value && new_value < TIM_PWM_Data.period / 2)
+	{
+		TIM_PWM_Data.phase = new_value;
+	}
+	else if (new_value <= 0)
+	{
+		TIM_PWM_Data.phase = 0;
+	}
+	else if(new_value >= TIM_PWM_Data.period / 2)
+	{
+		TIM_PWM_Data.phase = TIM_PWM_Data.period / 2;
+	}
+
+	logic_calc_out(TIM_PWM_Data.period, TIM_PWM_Data.phase);
+	logic_set_out();
+}
+
+// controller tuning
+void timer_pwm_control_prec_inc(void)
+{
+	if (TIM_Control_Var.precision < 1000)
+		TIM_Control_Var.precision *= 10;
+	else if (TIM_Control_Var.precision >= 1000)
+		TIM_Control_Var.precision = 1000;
+}
+void timer_pwm_control_prec_dec(void)
+{
+	if (TIM_Control_Var.precision > 0.0001)
+		TIM_Control_Var.precision /= 10;
+	else if (TIM_Control_Var.precision <= 0.0001)
+		TIM_Control_Var.precision = 0.0001;
+}
+void timer_pwm_control_kp_f_inc(void)
+{
+	if (TIM_Control_Var.kp_f < 10000)
+		TIM_Control_Var.kp_f += TIM_Control_Var.precision;
+	else if (TIM_Control_Var.kp_f >= 10000)
+		TIM_Control_Var.kp_f = 10000;
+}
+void timer_pwm_control_kp_f_dec(void)
+{
+	if (TIM_Control_Var.kp_f >= 0.0001)
+		TIM_Control_Var.kp_f -= TIM_Control_Var.precision;
+	else if (TIM_Control_Var.kp_f < 0.0001)
+		TIM_Control_Var.kp_f = 0.0001;
+}
+void timer_pwm_control_ki_f_inc(void)
+{
+	if (TIM_Control_Var.ki_f < 10000)
+		TIM_Control_Var.ki_f += TIM_Control_Var.precision;
+	else if (TIM_Control_Var.ki_f >= 10000)
+		TIM_Control_Var.ki_f = 10000;
+}
+void timer_pwm_control_ki_f_dec(void)
+{
+	if (TIM_Control_Var.ki_f > 0.0001)
+		TIM_Control_Var.ki_f -= TIM_Control_Var.precision;
+	else if (TIM_Control_Var.ki_f <= 0.0001)
+		TIM_Control_Var.ki_f = 0.0001;
+}
+void timer_pwm_control_kp_ph_inc(void)
+{
+	if (TIM_Control_Var.kp_ph < 10000)
+		TIM_Control_Var.kp_ph += TIM_Control_Var.precision;
+	else if (TIM_Control_Var.kp_ph >= 10000)
+		TIM_Control_Var.kp_ph = 10000;
+}
+void timer_pwm_control_kp_ph_dec(void)
+{
+	if (TIM_Control_Var.kp_ph > 0.0001)
+		TIM_Control_Var.kp_ph -= TIM_Control_Var.precision;
+	else if (TIM_Control_Var.kp_ph <= 0.0001)
+		TIM_Control_Var.kp_ph = 0.0001;
+}
+void timer_pwm_control_ki_ph_inc(void)
+{
+	if (TIM_Control_Var.ki_ph < 10000)
+		TIM_Control_Var.ki_ph += TIM_Control_Var.precision;
+	else if (TIM_Control_Var.ki_ph >= 10000)
+		TIM_Control_Var.ki_ph = 10000;
+}
+void timer_pwm_control_ki_ph_dec(void)
+{
+	if (TIM_Control_Var.ki_ph > 0.0001)
+		TIM_Control_Var.ki_ph -= TIM_Control_Var.precision;
+	else if (TIM_Control_Var.ki_ph <= 0.0001)
+		TIM_Control_Var.ki_ph = 0.0001;
 }
 
 float phasor_sum_magnitude_control(float i1, float i2, float i_ph_1, float i_ph_2, float v_ph, float T)
@@ -451,11 +576,15 @@ float phasor_sum_phase(float i1, float i2, float i_ph_1, float i_ph_2, float T)
 	return I_ph_12;
 }
 
-float f_sw_1 = TIMER_PWM_INIT_FREQ;
-float error_freq_1 = 0;
+// Initiate system timer for 0.1ms
+void TimerSys_init(void)
+{
+	SysTick_Config(SystemCoreClock / 10000);
+}
 
 void SysTick_Handler(void)
 {
+	// Timer variables
 	static u8 cnt1 = 0;
 	static u8 cnt10 = 1;
 	static u8 cnt100 = 5;
@@ -463,17 +592,19 @@ void SysTick_Handler(void)
 	static u16 cnt1000 = 500;
 	static u16 cnt10000 = 0;
 
-	float Kp_f;
-	float Ki_f;
-//	float Kp_ph;
-	float Io_ph_ref; // Degrees
-//	float Io_mag_ref; // A
-	float error_freq_0;
-//	float error_Io_phase;
-	float f_sw_0;
-//	float v_ph;
-//	static u16 bcnt10 = 0;
-//	static u16 bcnt100 = 0;
+	// Controller variables
+	static float Io_ph_ref; // Degrees
+	static float Io_mag_ref; // A
+	static float f_sw_0;
+	static float v_ph_0;
+	static float error_freq_0;
+	static float error_ph_0;
+	static float f_sw_1;
+	static float v_ph_1;
+	static float error_freq_1;
+	static float error_ph_1;
+	static u16 bcnt10 = 0;
+	static u16 bcnt100 = 0;
 
   	cnt1++;
 
@@ -491,33 +622,17 @@ void SysTick_Handler(void)
 		cnt1000++;
 		cnt10000++;
 
-		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
-
-			Kp_f = 1/10;
-//			Ki_f = 1; // PI
-			Io_ph_ref = 120 * ((float)TIM_PWM_Data.period / 360); // Degrees
-
-			error_freq_0 = Io_ph_ref - logic_data.Io_phase;
-			f_sw_0 = Kp_f * error_freq_0;
-//			f_sw_0 += Ki_f * (error_freq_0 - error_freq_1); // PI
-			f_sw_0 += f_sw_1;
-
-			logic_data.period = FPGA_CLOCK / f_sw_0 - 2;
-
-			f_sw_1 = f_sw_0;
-			error_freq_1 = error_freq_0;
-
-//			bcnt10++;
-
-//			Kp_ph = 1;
+//   // Bang–Bang Controller
+//
+//		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
+//
+//			Io_ph_ref = 120 * ((float)TIM_PWM_Data.period / 360); // Degrees
 //			Io_mag_ref = 7 * (100); // Amperes
-
-//			error_Io_phase = Io_mag_ref - logic_data.Io_mag;
-//			v_ph = (Kp_ph * error_Io_phase);
-
+//
+//			bcnt10++;
 //			bcnt100++;
-
-			//executed every 10ms
+//
+//			//executed every 10ms
 //			if (bcnt10 >= 10) {
 //				bcnt10 = 0;
 //				if (logic_data.Io_mag > Io_mag_ref) {
@@ -527,7 +642,7 @@ void SysTick_Handler(void)
 //					timer_pwm_phase_inc(1);
 //				}
 //			}
-			//executed every 100ms
+//			//executed every 100ms
 //			if (bcnt100 >= 100) {
 //				bcnt100 = 0;
 //				if (logic_data.Io_phase > Io_ph_ref) {
@@ -537,7 +652,7 @@ void SysTick_Handler(void)
 //					timer_pwm_freq_inc(1);
 //				}
 //			}
-		}
+//		}
 
 		//executed every 10ms
 		if(cnt10 >= 10)
@@ -559,6 +674,48 @@ void SysTick_Handler(void)
 		{
 			cnt100 = 0;
 			TIM_Sys_Flags.Time100ms = 1;
+
+		// PI Controller
+
+			if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
+
+				// Frequency changes to control Io phase (Vdc input = 7V)
+//				Io_ph_ref = 100 * ((float)TIM_PWM_Data.period / 360); // Degrees (110)
+//
+//				error_freq_0 = Io_ph_ref - logic_data.Io_phase;
+//				f_sw_0 = TIM_Control_Var.ki_f * error_freq_0;
+//				f_sw_0 += TIM_Control_Var.kp_f * (error_freq_0 - error_freq_1);
+//				f_sw_0 += f_sw_1;
+//
+//				timer_pwm_freq_control(f_sw_0);
+//
+//				f_sw_1 = f_sw_0;
+//				error_freq_1 = error_freq_0;
+
+				// V phase changes to control Io magnitude (10x faster than frequency control)
+				Io_mag_ref = 7 * (100); // Amperes
+
+				error_ph_0 = Io_mag_ref - logic_data.Io_mag;
+				v_ph_0 = TIM_Control_Var.ki_ph * error_ph_0;
+				v_ph_0 += TIM_Control_Var.kp_ph * (error_ph_0 - error_ph_1);
+				v_ph_0 += v_ph_1;
+
+				timer_pwm_phase_control(v_ph_0);
+
+				v_ph_1 = v_ph_0;
+				error_ph_1 = error_ph_0;
+			}
+			else if (TIM_PWM_Data.state == TIMER_STATE_RUN2)
+			{
+				f_sw_1 = FPGA_CLOCK / (TIM_PWM_Data.period + 2);
+				v_ph_1 = TIM_PWM_Data.phase;
+				error_freq_1 = 0;
+				error_ph_1 = 0;
+				f_sw_0 = 0;
+				v_ph_0 = 0;
+				error_freq_0 = 0;
+				error_ph_0 = 0;
+			}
 		}
 
 		//executed every 200ms

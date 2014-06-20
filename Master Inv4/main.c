@@ -24,6 +24,8 @@ volatile Diagnostic_Data_Type Diagnostic_Data;
 
 volatile icomm_data_type icomm_data;
 
+volatile TIM_Control_Var_Type TIM_Control_Var;
+
 int main(void)
 {
 	RCC_Configuration();

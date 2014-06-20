@@ -185,6 +185,14 @@ void diag_get_data(void)
 
 	Diagnostic_Data.Faults = logic_data.all_faults;
 	Diagnostic_Data.State = TIM_PWM_Data.state;
+
+	// controller data
+	Diagnostic_Data.kp_f = TIM_Control_Var.kp_f * 10000;
+	Diagnostic_Data.ki_f = TIM_Control_Var.ki_f * 10000;
+	Diagnostic_Data.kp_ph = TIM_Control_Var.kp_ph * 10000;
+	Diagnostic_Data.ki_ph = TIM_Control_Var.ki_ph * 10000;
+	Diagnostic_Data.precision = TIM_Control_Var.precision * 10000;
+
 }
 
 void diag_store_buffer(s32 A, s32 B)

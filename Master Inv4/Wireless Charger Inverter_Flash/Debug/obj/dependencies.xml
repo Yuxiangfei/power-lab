@@ -20,7 +20,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\C Files\config.h"/>
       </source>
-      <source file="..\..\..\C Files\diagnostic.h" lastModified="146825f1e04">
+      <source file="..\..\..\C Files\diagnostic.h" lastModified="146bb05dae7">
          <include file="..\..\..\C Files\adc.h"/>
          <include file="..\..\..\C Files\timer.h"/>
       </source>
@@ -39,9 +39,6 @@
       </source>
       <source file="..\..\..\C Files\usart.c" lastModified="14648aded96">
          <include file="..\..\..\C Files\usart.h"/>
-      </source>
-      <source file="..\..\..\C Files\diagnostic.c" lastModified="146825f1de0">
-         <include file="..\..\..\C Files\diagnostic.h"/>
       </source>
       <source file="..\..\..\C Files\int_comm.c" lastModified="14648aded44">
          <include file="..\..\..\C Files\int_comm.h"/>
@@ -75,7 +72,7 @@
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14648adee7a">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\C Files\simple_comm.h" lastModified="14648aded75">
+      <source file="..\..\..\C Files\simple_comm.h" lastModified="146ba67ab45">
          <include file="..\..\..\C Files\usart.h"/>
          <include file="..\..\..\C Files\timer.h"/>
          <include file="..\..\..\C Files\diagnostic.h"/>
@@ -106,10 +103,10 @@
       </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14648adf1c4">
       </source>
-      <source file="..\..\..\C Files\simple_comm.c" lastModified="146825b9cda">
+      <source file="..\..\..\C Files\simple_comm.c" lastModified="146ba8cdd73">
          <include file="..\..\..\C Files\simple_comm.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="14648adec9a">
+      <source file="..\..\..\main.c" lastModified="146bad968a5">
          <include file="..\..\..\C Files\config.h"/>
          <include file="..\..\..\C Files\gpio.h"/>
          <include file="..\..\..\C Files\timer.h"/>
@@ -120,7 +117,7 @@
          <include file="..\..\..\C Files\diagnostic.h"/>
          <include file="..\..\..\C Files\int_comm.h"/>
       </source>
-      <source file="..\..\..\C Files\timer.h" lastModified="146823b1b61">
+      <source file="..\..\..\C Files\timer.h" lastModified="146babeab77">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\C Files\adc.h"/>
@@ -129,9 +126,6 @@
       </source>
       <source file="..\..\..\C Files\gpio.h" lastModified="14648aded3c">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-      </source>
-      <source file="..\..\..\C Files\timer.c" lastModified="14682d1893b">
-         <include file="..\..\..\C Files\timer.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14648adeebb">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
@@ -172,18 +166,18 @@
       </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14648adee22">
       </source>
-      <source file="..\..\..\C Files\adc.h" lastModified="14648adecf3">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14648adef33">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14648adeeb0">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      <source file="..\..\..\C Files\adc.h" lastModified="14648adecf3">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_adc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
       </source>
       <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14648adee30">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14648adeeb0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14648adee19">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>

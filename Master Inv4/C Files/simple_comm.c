@@ -103,6 +103,37 @@ void simple_comm_routine(void)
 						icomm_data.cmd = ICOMM_C_STM;
 					}
 					break;
+					// controller cases
+				case SIMPLE_COMM_COM_INC_PREC:
+					timer_pwm_control_prec_inc();
+					break;
+				case SIMPLE_COMM_COM_DEC_PREC:
+					timer_pwm_control_prec_dec();
+					break;
+				case SIMPLE_COMM_COM_INC_KP_F:
+					timer_pwm_control_kp_f_inc();
+					break;
+				case SIMPLE_COMM_COM_DEC_KP_F:
+					timer_pwm_control_kp_f_dec();
+					break;
+				case SIMPLE_COMM_COM_INC_KI_F:
+					timer_pwm_control_ki_f_inc();
+					break;
+				case SIMPLE_COMM_COM_DEC_KI_F:
+					timer_pwm_control_ki_f_dec();
+					break;
+				case SIMPLE_COMM_COM_INC_KP_PH:
+					timer_pwm_control_kp_ph_inc();
+					break;
+				case SIMPLE_COMM_COM_DEC_KP_PH:
+					timer_pwm_control_kp_ph_dec();
+					break;
+				case SIMPLE_COMM_COM_INC_KI_PH:
+					timer_pwm_control_ki_ph_inc();
+					break;
+				case SIMPLE_COMM_COM_DEC_KI_PH:
+					timer_pwm_control_ki_ph_dec();
+					break;
 				default:
 					TIM_PWM_Data.cmd = ch;
 					break;
@@ -125,7 +156,6 @@ void simple_comm_routine(void)
 					default:
 						break;
 				}
-
 				mode = 0;
 			}
 		}
@@ -143,7 +173,7 @@ void simple_comm_send_all(void)
 
 	ptr = (u8*)&Diagnostic_Data;
 
-	for(i = 0; i < 400; i++)
+	for(i = 0; i < 420; i++)
 	{
 		USART2_Datas.TX_Buf[USART2_Datas.TX_index_in] = *ptr;
 		crc += *ptr;

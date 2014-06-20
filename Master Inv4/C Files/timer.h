@@ -35,6 +35,8 @@
 #define TIMER_CMD_DISABLE		'd'
 #define TIMER_CMD_RESET			'r'
 
+#define TIMER_PWM_INIT_PREC     1
+
 typedef struct
 {
 	u8 Time1ms;
@@ -56,8 +58,18 @@ typedef struct
 	u16	ifb;
 } TIM_PWM_Data_Type;
 
+typedef struct
+{
+	float kp_f;
+	float ki_f;
+	float kp_ph;
+	float ki_ph;
+	float precision;
+} TIM_Control_Var_Type;
+
 extern volatile	TIM_Sys_Flags_Type TIM_Sys_Flags;
 extern volatile TIM_PWM_Data_Type TIM_PWM_Data;
+extern volatile TIM_Control_Var_Type TIM_Control_Var;
 
 void timer_pwm_init(void);
 void timer_pwm_freq_inc(u16 value);
@@ -66,6 +78,18 @@ void timer_pwm_phase1_inc(u16 value);
 void timer_pwm_phase1_dec(u16 value);
 void timer_pwm_phase2_inc(u16 value);
 void timer_pwm_phase2_dec(u16 value);
+
+// controller tuning
+void timer_pwm_control_prec_inc(void);
+void timer_pwm_control_prec_dec(void);
+void timer_pwm_control_kp_f_inc(void);
+void timer_pwm_control_kp_f_dec(void);
+void timer_pwm_control_ki_f_inc(void);
+void timer_pwm_control_ki_f_dec(void);
+void timer_pwm_control_kp_ph_inc(void);
+void timer_pwm_control_kp_ph_dec(void);
+void timer_pwm_control_ki_ph_inc(void);
+void timer_pwm_control_ki_ph_dec(void);
 
 void timer_routine(void);
 void TIM1_UP_TIM10_IRQHandler(void);

@@ -33,6 +33,18 @@
 #define SIMPLE_COMM_CMD_MTS				']'
 #define SIMPLE_COMM_CMD_STM				'['
 
+// controller commands
+#define SIMPLE_COMM_COM_INC_PREC        'm'
+#define SIMPLE_COMM_COM_DEC_PREC        'l'
+#define SIMPLE_COMM_COM_INC_KP_F        'x'
+#define SIMPLE_COMM_COM_DEC_KP_F        'z'
+#define SIMPLE_COMM_COM_INC_KI_F        'v'
+#define SIMPLE_COMM_COM_DEC_KI_F        'c'
+#define SIMPLE_COMM_COM_INC_KP_PH       '8'
+#define SIMPLE_COMM_COM_DEC_KP_PH       '7'
+#define SIMPLE_COMM_COM_INC_KI_PH       '0'
+#define SIMPLE_COMM_COM_DEC_KI_PH       '9'
+
 void simple_comm_routine(void);
 
 void simple_comm_send_all(void);

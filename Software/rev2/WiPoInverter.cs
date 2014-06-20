@@ -184,6 +184,13 @@ namespace WiPoInverter
         public double Pho_Is_max_s;
         public double IPhaseo_max_s;
 
+        // controller variables
+        public double Controller_precision;
+        public double Kp_f;
+        public double Ki_f;
+        public double Kp_ph;
+        public double Ki_ph;
+
         public WiPoInverter()
         {
             port = new SerialPort("5", 115200, Parity.None, 8, StopBits.One);
@@ -287,6 +294,47 @@ namespace WiPoInverter
         {
             SendCmd((byte)'d');
         }
+        // controller commands
+        public void SendCmdPrecInc()
+        {
+            SendCmd((byte)'m');
+        }
+        public void SendCmdPrecDec()
+        {
+            SendCmd((byte)'l');
+        }
+        public void SendCmdKpfInc()
+        {
+            SendCmd((byte)'x');
+        }
+        public void SendCmdKpfDec()
+        {
+            SendCmd((byte)'z');
+        }
+        public void SendCmdKifInc()
+        {
+            SendCmd((byte)'v');
+        }
+        public void SendCmdKifDec()
+        {
+            SendCmd((byte)'c');
+        }
+        public void SendCmdKpphInc()
+        {
+            SendCmd((byte)'8');
+        }
+        public void SendCmdKpphDec()
+        {
+            SendCmd((byte)'7');
+        }
+        public void SendCmdKiphInc()
+        {
+            SendCmd((byte)'0');
+        }
+        public void SendCmdKiphDec()
+        {
+            SendCmd((byte)'9');
+        }
 
         public void SendRef(byte channel, double value)
         {
@@ -362,7 +410,7 @@ namespace WiPoInverter
             {
                 port.Write(obuf, 0, 1);
 
-                for (i = 0; i < 404; i++)
+                for (i = 0; i < 424; i++)
                     port.Read(ibuf, i, 1);
             }
             catch
@@ -373,7 +421,7 @@ namespace WiPoInverter
 
             crc = 0;
 
-            for (i = 0; i < 100; i++)
+            for (i = 0; i < 105; i++)
             {
                 tmp = 0;
 
@@ -392,7 +440,7 @@ namespace WiPoInverter
             for (j = 0; j < 4; j++)
             {
                 tmp *= 256;
-                tmp += ibuf[403 - j];
+                tmp += ibuf[423 - j];
             }
 
             if (crc != tmp)
@@ -626,6 +674,12 @@ namespace WiPoInverter
             IPhaseo_mean = buffer[98];
             Pho_Is_min = buffer[96] / 100;
             IPhaseo_min = buffer[99];
+
+            Kp_f = buffer[100] / 10000;
+            Ki_f = buffer[101] / 10000;
+            Kp_ph = buffer[102] / 10000;
+            Ki_ph = buffer[103] / 10000;
+            Controller_precision = buffer[104] / 10000;
 
             phasor_calculation();
         }

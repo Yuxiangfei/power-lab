@@ -1,31 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Wireless Charger Inverter.map -O0 --gc-sections -lm -lgcc -lc -LC:\CooCox\CoIDE\configuration\ProgramData\Wireless Charger Inverter -TC:\CooCox\CoIDE\configuration\ProgramData\Wireless Charger Inverter/link.ld -g -L..\..\.. -lm">
-      <target file="Wireless Charger Inverter.elf" lastModified="146b0b8a3d7">
-         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="146b0b88aed"/>
-         <source file="..\obj\logic.o" lastModified="146b0b88b5f"/>
-         <source file="..\obj\timer.o" lastModified="146b0b88c59"/>
-         <source file="..\obj\stm32f4xx_usart.o" lastModified="146b0b88d0b"/>
-         <source file="..\obj\config.o" lastModified="146b0b88d6c"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="146b0b88db3"/>
-         <source file="..\obj\stm32f4xx_iwdg.o" lastModified="146b0b88e11"/>
-         <source file="..\obj\main.o" lastModified="146b0b88e96"/>
-         <source file="..\obj\simple_comm.o" lastModified="146b0b88f86"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="146b0b8902f"/>
-         <source file="..\obj\stm32f4xx_adc.o" lastModified="146b0b890f4"/>
-         <source file="..\obj\gpio.o" lastModified="146b0b891ae"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="146b0b89230"/>
-         <source file="..\obj\stm32f4xx_flash.o" lastModified="146b0b892b1"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="146b0b89310"/>
-         <source file="..\obj\syscalls.o" lastModified="146b0b8944b"/>
-         <source file="..\obj\stm32f4xx_dma.o" lastModified="146b0b894f0"/>
-         <source file="..\obj\adc.o" lastModified="146b0b89571"/>
-         <source file="..\obj\stm32f4xx_spi.o" lastModified="146b0b895fc"/>
-         <source file="..\obj\misc.o" lastModified="146b0b896c1"/>
-         <source file="..\obj\int_comm.o" lastModified="146b0b8980d"/>
-         <source file="..\obj\diagnostic.o" lastModified="146b0b8989f"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="146b0b899e6"/>
-         <source file="..\obj\usart.o" lastModified="146b0b89a90"/>
+      <target file="Wireless Charger Inverter.elf" lastModified="146bb15bd6d">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="146bad9a224"/>
+         <source file="..\obj\logic.o" lastModified="146bad9a295"/>
+         <source file="..\obj\timer.o" lastModified="146bb15ba17"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="146bad9a4fb"/>
+         <source file="..\obj\config.o" lastModified="146bad9a553"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="146bad9a594"/>
+         <source file="..\obj\stm32f4xx_iwdg.o" lastModified="146bad9a5ea"/>
+         <source file="..\obj\main.o" lastModified="146bb05df82"/>
+         <source file="..\obj\simple_comm.o" lastModified="146bb05e031"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="146bad9a772"/>
+         <source file="..\obj\stm32f4xx_adc.o" lastModified="146bad9a7f8"/>
+         <source file="..\obj\gpio.o" lastModified="146bad9a855"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="146bad9a8bc"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="146bad9a936"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="146bad9a990"/>
+         <source file="..\obj\syscalls.o" lastModified="146bad9aa03"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="146bad9aa73"/>
+         <source file="..\obj\adc.o" lastModified="146bad9aade"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="146bad9ab5b"/>
+         <source file="..\obj\misc.o" lastModified="146bad9abb8"/>
+         <source file="..\obj\int_comm.o" lastModified="146bb05e10e"/>
+         <source file="..\obj\diagnostic.o" lastModified="146bb15baa0"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="146bad9ade3"/>
+         <source file="..\obj\usart.o" lastModified="146bad9ae59"/>
       </target>
    </processor>
 </history>

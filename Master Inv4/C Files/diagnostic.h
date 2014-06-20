@@ -66,7 +66,13 @@ typedef struct
 	s32 I34_phase[3];
 	s32 Io_mag[3];
 	s32 Io_phase[3];
-//328+72
+//400
+	u32 kp_f;
+	u32 ki_f;
+	u32 kp_ph;
+	u32 ki_ph;
+	u32 precision;
+//420
 	s32	buffer1[DIAG_BUF_SIZE];
 	s32	buffer2[DIAG_BUF_SIZE];
 	u32	bcnt;
