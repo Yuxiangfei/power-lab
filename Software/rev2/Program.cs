@@ -102,7 +102,7 @@ namespace WiPoInverter
                 {
                     cki = Console.ReadKey();
 
-                    /*if (cki.KeyChar == 'b')
+                    if (cki.KeyChar == 'b')
                     {
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");
@@ -121,13 +121,13 @@ namespace WiPoInverter
                         file_buffers.Close();
                     }
                     else
-                    {*/
+                    {
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");
                         Console.WriteLine("                               ");
                         Unit1.SendCmd((byte)cki.KeyChar);
-                    /*}
-                    else if (cki.KeyChar == 'r')
+                    }
+                    /*else if (cki.KeyChar == 'r')
                     {
                         Console.SetCursorPosition(0, line_num);
                         Console.WriteLine("                               ");

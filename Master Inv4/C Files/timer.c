@@ -198,10 +198,10 @@ void timer_routine(void)
 			TIM_PWM_Data.period = TIMER_PWM_INIT_PERIOD;
 			TIM_PWM_Data.phase = 0;
 			TIM_Control_Var.precision = TIMER_PWM_INIT_PREC; // Precision of controller constants
-			TIM_Control_Var.kp_f = 300;
-			TIM_Control_Var.ki_f = 30;
-			TIM_Control_Var.kp_ph = 0.02;
-			TIM_Control_Var.ki_ph = 0.002;
+			TIM_Control_Var.kp_f = 5;       // 5
+			TIM_Control_Var.ki_f = 10;      // 10
+			TIM_Control_Var.kp_ph = 0.0003; // 0.0003
+			TIM_Control_Var.ki_ph = 0.025;  // 0.025
 			logic_calc_out(TIM_PWM_Data.period, TIM_PWM_Data.phase);
 			logic_set_out();
 
@@ -680,17 +680,17 @@ void SysTick_Handler(void)
 			if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
 
 				// Frequency changes to control Io phase (Vdc input = 7V)
-//				Io_ph_ref = 100 * ((float)TIM_PWM_Data.period / 360); // Degrees (110)
-//
-//				error_freq_0 = Io_ph_ref - logic_data.Io_phase;
-//				f_sw_0 = TIM_Control_Var.ki_f * error_freq_0;
-//				f_sw_0 += TIM_Control_Var.kp_f * (error_freq_0 - error_freq_1);
-//				f_sw_0 += f_sw_1;
-//
-//				timer_pwm_freq_control(f_sw_0);
-//
-//				f_sw_1 = f_sw_0;
-//				error_freq_1 = error_freq_0;
+				Io_ph_ref = 120 * ((float)TIM_PWM_Data.period / 360); // Degrees (110)
+
+				error_freq_0 = Io_ph_ref - logic_data.Io_phase;
+				f_sw_0 = TIM_Control_Var.ki_f * error_freq_0;
+				f_sw_0 += TIM_Control_Var.kp_f * (error_freq_0 - error_freq_1);
+				f_sw_0 += f_sw_1;
+
+				timer_pwm_freq_control(f_sw_0);
+
+				f_sw_1 = f_sw_0;
+				error_freq_1 = error_freq_0;
 
 				// V phase changes to control Io magnitude (10x faster than frequency control)
 				Io_mag_ref = 7 * (100); // Amperes
@@ -701,6 +701,12 @@ void SysTick_Handler(void)
 				v_ph_0 += v_ph_1;
 
 				timer_pwm_phase_control(v_ph_0);
+
+//				v_ph_0 *= 1000;
+//				error_ph_0 *= 1000;
+//				diag_store_buffer(v_ph_0, error_ph_0);
+//				v_ph_0 /= 1000;
+//				error_ph_0 /= 1000;
 
 				v_ph_1 = v_ph_0;
 				error_ph_1 = error_ph_0;

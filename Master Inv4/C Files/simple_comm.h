@@ -44,6 +44,12 @@
 #define SIMPLE_COMM_COM_DEC_KP_PH       '7'
 #define SIMPLE_COMM_COM_INC_KI_PH       '0'
 #define SIMPLE_COMM_COM_DEC_KI_PH       '9'
+// controller commands 2
+#define SIMPLE_COMM_CMD_GET_VALUE       'G'
+#define SIMPLE_COMM_CMD_SEND_FKP        'q'
+#define SIMPLE_COMM_CMD_SEND_FKI        'w'
+#define SIMPLE_COMM_CMD_SEND_PHKP       'Q'
+#define SIMPLE_COMM_CMD_SEND_PHKI       'W'
 
 void simple_comm_routine(void);
 

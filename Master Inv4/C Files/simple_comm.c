@@ -66,6 +66,14 @@ void simple_comm_routine(void)
 				case SIMPLE_COMM_CMD_GET_ALL:
 					simple_comm_send_all();
 					break;
+				case SIMPLE_COMM_CMD_GET_BUFFER: // Do we use this??
+					simple_comm_send_buffer();
+					break;
+				case SIMPLE_COMM_CMD_TRG_BUFFER:
+					Diagnostic_Data.benable = 1;
+					break;
+
+
 				case SIMPLE_COMM_CMD_GET_SMALL:
 					//simple_comm_send_small();
 					break;
@@ -134,6 +142,19 @@ void simple_comm_routine(void)
 				case SIMPLE_COMM_COM_DEC_KI_PH:
 					timer_pwm_control_ki_ph_dec();
 					break;
+				// controller v2
+				case SIMPLE_COMM_CMD_SEND_FKP:
+					mode = SIMPLE_COMM_CMD_SEND_FKP;
+					break;
+				case SIMPLE_COMM_CMD_SEND_FKI:
+					mode = SIMPLE_COMM_CMD_SEND_FKI;
+					break;
+				case SIMPLE_COMM_CMD_SEND_PHKP:
+					mode = SIMPLE_COMM_CMD_SEND_PHKP;
+					break;
+				case SIMPLE_COMM_CMD_SEND_PHKI:
+					mode = SIMPLE_COMM_CMD_SEND_PHKI;
+					break;
 				default:
 					TIM_PWM_Data.cmd = ch;
 					break;
@@ -146,12 +167,30 @@ void simple_comm_routine(void)
 				value *= 10;
 				value += ch - '0';
 			}
+
+
 			else if(ch == SIMPLE_COMM_CMD_EXECUTE)
 			{
 				switch(mode)
 				{
-					case SIMPLE_COMM_CMD_SET_REF3:
-						//TIM_Ctrl_Ph[2].ref_sp = value;
+//					case SIMPLE_COMM_CMD_SET_REF3:
+//						//TIM_Ctrl_Ph[2].ref_sp = value;
+//						break;
+					case SIMPLE_COMM_CMD_SEND_FKP:
+						TIM_Control_Var.kp_f = (float)value / 10000;
+						value = 0;
+						break;
+					case SIMPLE_COMM_CMD_SEND_FKI:
+						TIM_Control_Var.ki_f = (float)value / 10000;
+						value = 0;
+						break;
+					case SIMPLE_COMM_CMD_SEND_PHKP:
+						TIM_Control_Var.kp_ph = (float)value / 10000;
+						value = 0;
+						break;
+					case SIMPLE_COMM_CMD_SEND_PHKI:
+						TIM_Control_Var.ki_ph = (float)value / 10000;
+						value = 0;
 						break;
 					default:
 						break;

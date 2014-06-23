@@ -254,42 +254,34 @@ namespace WiPoInverter
         {
             SendCmd((byte)'I');
         }
-
         public void SendCmdEnable()
         {
             SendCmd((byte)'E');
         }
-
         public void SendCmdDisable()
         {
             SendCmd((byte)'D');
         }
-
         public void SendCmdRun()
         {
             SendCmd((byte)'R');
         }
-
         public void SendCmdReset()
         {
             SendCmd((byte)'r');
         }
-
         public void SendCmdFreqInc()
         {
             SendCmd((byte)'+');
         }
-
         public void SendCmdFreqInc10()
         {
             SendCmd((byte)'i');
         }
-
         public void SendCmdFreqDec()
         {
             SendCmd((byte)'-');
         }
-
         public void SendCmdFreqDec10()
         {
             SendCmd((byte)'d');
@@ -386,8 +378,8 @@ namespace WiPoInverter
             byte[] obuf;
             byte[] ibuf;
             int i, j;
-            UInt32 tmp;
-            UInt32 crc;
+            Int32 tmp;
+            Int32 crc;
 
             com_error = false;
             crc_error = false;
