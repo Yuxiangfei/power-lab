@@ -15,7 +15,7 @@
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\C Files\usart.h" lastModified="14648adf188">
+      <source file="..\..\..\C Files\usart.h" lastModified="146d48cdd4b">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
          <include file="..\..\..\C Files\config.h"/>
@@ -40,7 +40,7 @@
       <source file="..\..\..\C Files\usart.c" lastModified="14648aded96">
          <include file="..\..\..\C Files\usart.h"/>
       </source>
-      <source file="..\..\..\C Files\diagnostic.c" lastModified="146bb15b656">
+      <source file="..\..\..\C Files\diagnostic.c" lastModified="146d49870e7">
          <include file="..\..\..\C Files\diagnostic.h"/>
       </source>
       <source file="..\..\..\C Files\int_comm.c" lastModified="14648aded44">
@@ -106,7 +106,7 @@
       </source>
       <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14648adf1c4">
       </source>
-      <source file="..\..\..\C Files\simple_comm.c" lastModified="146ca354038">
+      <source file="..\..\..\C Files\simple_comm.c" lastModified="146d48fa8b5">
          <include file="..\..\..\C Files\simple_comm.h"/>
       </source>
       <source file="..\..\..\main.c" lastModified="146bad968a5">
@@ -129,6 +129,9 @@
       </source>
       <source file="..\..\..\C Files\gpio.h" lastModified="14648aded3c">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+      </source>
+      <source file="..\..\..\C Files\timer.c" lastModified="146d4a6dc86">
+         <include file="..\..\..\C Files\timer.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_usart.h" lastModified="14648adeebb">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>

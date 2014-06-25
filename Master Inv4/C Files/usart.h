@@ -8,7 +8,7 @@
 
 #define USART1_BAUD				115200
 #define USART2_BAUD				115200
-#define TX_BUF_SIZE				1024
+#define TX_BUF_SIZE				8096
 #define RX_BUF_SIZE				1024
 
 #define USART_TXEN2_PIN			GPIOA, GPIO_Pin_1

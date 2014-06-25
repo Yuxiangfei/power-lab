@@ -108,7 +108,7 @@ namespace WiPoInverter
                         Console.WriteLine("                               ");
                         Console.WriteLine("                               ");
                         Unit1.SendCmdBufTrig();
-                        Thread.Sleep(200);
+                        Thread.Sleep(20000);
                         Unit1.GetBuffer();
 
                         System.IO.StreamWriter file_buffers = new System.IO.StreamWriter("buffers.csv");

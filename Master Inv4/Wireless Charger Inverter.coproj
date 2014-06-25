@@ -156,15 +156,15 @@
     <File name="cmsis_lib/source/stm32f4xx_dma.c" path="cmsis_lib/source/stm32f4xx_dma.c" type="1"/>
     <File name="C Files/int_comm.c" path="C Files/int_comm.c" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
-    <File name="C Files/usart.c" path="C Files/usart.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_syscfg.h" path="cmsis_lib/include/stm32f4xx_syscfg.h" type="1"/>
+    <File name="C Files/usart.c" path="C Files/usart.c" type="1"/>
     <File name="C Files/gpio.h" path="C Files/gpio.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
     <File name="C Files/simple_comm.h" path="C Files/simple_comm.h" type="1"/>
     <File name="C Files/config.c" path="C Files/config.c" type="1"/>
+    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_flash.c" path="cmsis_lib/source/stm32f4xx_flash.c" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_spi.c" path="cmsis_lib/source/stm32f4xx_spi.c" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
@@ -172,8 +172,8 @@
     <File name="C Files/adc.c" path="C Files/adc.c" type="1"/>
     <File name="C Files/logic.c" path="C Files/logic.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_iwdg.c" path="cmsis_lib/source/stm32f4xx_iwdg.c" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
     <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="C Files/timer.h" path="C Files/timer.h" type="1"/>

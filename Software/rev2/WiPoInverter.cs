@@ -254,6 +254,10 @@ namespace WiPoInverter
         {
             SendCmd((byte)'I');
         }
+        public void SendCmdGetBuf()
+        {
+            SendCmd((byte)'B');
+        }
         public void SendCmdEnable()
         {
             SendCmd((byte)'E');
@@ -402,7 +406,7 @@ namespace WiPoInverter
             {
                 port.Write(obuf, 0, 1);
 
-                for (i = 0; i < 424; i++)
+                for (i = 0; i < 424; i++) // change here
                     port.Read(ibuf, i, 1);
             }
             catch
@@ -413,7 +417,7 @@ namespace WiPoInverter
 
             crc = 0;
 
-            for (i = 0; i < 105; i++)
+            for (i = 0; i < 105; i++) // change here
             {
                 tmp = 0;
 
@@ -432,7 +436,7 @@ namespace WiPoInverter
             for (j = 0; j < 4; j++)
             {
                 tmp *= 256;
-                tmp += ibuf[423 - j];
+                tmp += ibuf[423 - j]; // change here
             }
 
             if (crc != tmp)
@@ -448,8 +452,8 @@ namespace WiPoInverter
             byte[] obuf;
             byte[] ibuf;
             int i, j;
-            UInt32 tmp;
-            UInt32 crc;
+            Int32 tmp;
+            Int32 crc;
 
             com_error = false;
             crc_error = false;

@@ -622,6 +622,8 @@ void SysTick_Handler(void)
 		cnt1000++;
 		cnt10000++;
 
+//		diag_store_buffer((s32)ADC_Measurements.Vdc2, (s32)ADC_Measurements.Vdc1);
+
 //   // Bang–Bang Controller
 //
 //		if (TIM_PWM_Data.state == TIMER_STATE_RUN3) {
@@ -704,7 +706,7 @@ void SysTick_Handler(void)
 
 //				v_ph_0 *= 1000;
 //				error_ph_0 *= 1000;
-//				diag_store_buffer(v_ph_0, error_ph_0);
+				diag_store_buffer((s32)(v_ph_0  / TIM_PWM_Data.period * 360), (s32)error_ph_0);
 //				v_ph_0 /= 1000;
 //				error_ph_0 /= 1000;
 

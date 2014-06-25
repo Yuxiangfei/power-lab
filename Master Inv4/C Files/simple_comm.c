@@ -66,14 +66,12 @@ void simple_comm_routine(void)
 				case SIMPLE_COMM_CMD_GET_ALL:
 					simple_comm_send_all();
 					break;
-				case SIMPLE_COMM_CMD_GET_BUFFER: // Do we use this??
+				case SIMPLE_COMM_CMD_GET_BUFFER:
 					simple_comm_send_buffer();
 					break;
 				case SIMPLE_COMM_CMD_TRG_BUFFER:
 					Diagnostic_Data.benable = 1;
 					break;
-
-
 				case SIMPLE_COMM_CMD_GET_SMALL:
 					//simple_comm_send_small();
 					break;
